@@ -12,6 +12,6 @@ jobs:
 
       - name: Format Commit Message
         run: | # This step runs the script
-          sh format-commit.sh < /dev/stdin
+          sh ./format-commit.sh < /dev/stdin
         env:
           INPUT_MESSAGE: ${{ github.event.message }} # Pass commit message from event
