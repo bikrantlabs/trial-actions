@@ -4,7 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  install:
+  release:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,14 +17,6 @@ jobs:
         uses: pnpm/action-setup@v3 # docs https://pnpm.io/continuous-integration#github-actions
         with:
           version: 8
-
-  release:
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
